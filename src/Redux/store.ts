@@ -4,7 +4,7 @@ import {
   persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,
 } from 'redux-persist';
 import uiReducer from './ui';
-import userReducer from './user';
+import userReducer, { removeError } from './user';
 
 const persistConfig = {
   key: 'root',
@@ -34,6 +34,10 @@ const store = configureStore({
 
 export const persistor = persistStore(store, {}, () => {
   console.log('Store rehydration finished');
+  // If at startup i have a previous login attempt failed i reset the error.
+  if (store.getState().user.error) {
+    store.dispatch(removeError());
+  }
 });
 
 export default store;

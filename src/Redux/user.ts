@@ -10,17 +10,18 @@ const initialState = { user: undefined, error: undefined, loading: false } as Us
 export const login = createAsyncThunk(
   'user/login',
   async ({ email, password }: { email: string; password: string }) => {
-    const authResult = await httppost('/login', { email, password });
+    const authResult = await httppost('login', { email, password }, true);
     // In a real case scenario i'm expecting a 403 error.
+    const result = await authResult?.json();
     if (authResult?.ok) {
-      const result = await authResult.json();
       return {
+        user: { email },
         accessToken: result.token,
         error: result.error,
       } as UserState;
     }
     return {
-      error: 'Unknown error',
+      error: result.error || 'Unknown error',
     } as UserState;
   },
 );
@@ -39,13 +40,13 @@ const UserSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(login.rejected, (state, action) => {
+      state.authToken = undefined;
       state.loading = false;
       state.error = 'Unknown error';
     });
     builder.addCase(login.fulfilled, (state, action) => ({
       ...action.payload,
       loading: false,
-      error: undefined,
     }));
   },
 });
