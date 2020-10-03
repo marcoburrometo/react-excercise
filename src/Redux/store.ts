@@ -4,16 +4,18 @@ import {
   persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,
 } from 'redux-persist';
 import uiReducer from './ui';
+import userReducer from './user';
 
 const persistConfig = {
   key: 'root',
   storage,
   version: 1,
-  whitelist: ['ui'],
+  whitelist: ['ui', 'user'],
 };
 
 const rootReducer = combineReducers({
   ui: uiReducer,
+  user: userReducer,
 });
 
 // Middleware: Redux Persist Persisted Reducer

@@ -3,10 +3,10 @@ import { ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { purple, teal } from '@material-ui/core/colors';
 import AppRouter from './Views/Router';
-import { RootState } from './Redux/store';
+import { themeSelector } from './Redux/Selectors/ui';
 
 function Wrapper() {
-  const themeType = useSelector((state: RootState) => state.ui.theme);
+  const themeType = useSelector(themeSelector);
   const theme = createMuiTheme({
     palette: {
       type: themeType,
