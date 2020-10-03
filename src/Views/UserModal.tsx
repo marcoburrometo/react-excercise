@@ -44,7 +44,7 @@ export default function UserModal() {
         // I'm refreshing the list
         dispatch(resetUserList());
         dispatch(setCurrentPage(1));
-        history.goBack();
+        history.push('/user-list');
       } else {
         setError((await res?.text()) || 'Unknown error');
       }
@@ -95,7 +95,7 @@ export default function UserModal() {
           <p className="has-error">{error} &nbsp;</p>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" onClick={history.goBack}>
+          <Button variant="contained" onClick={() => history.push('/user-list')}>
             Cancel
           </Button>
           <Button disabled={!formState.isDirty || !formState.isValid} variant="contained" type="submit" color="primary">

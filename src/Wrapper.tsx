@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { purple, teal } from '@material-ui/core/colors';
+import { blue, lime } from '@material-ui/core/colors';
 import AppRouter from './Views/Router';
 import { themeSelector } from './Redux/Selectors/ui';
 import { loggedUserSelector } from './Redux/Selectors/user';
@@ -14,7 +14,7 @@ function Wrapper() {
     palette: {
       type: themeType,
       primary: {
-        main: themeType === 'light' ? teal['500'] : purple['500'],
+        main: themeType === 'light' ? blue['500'] : lime['500'],
       },
     },
   });

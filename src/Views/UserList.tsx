@@ -65,10 +65,11 @@ const UserList = () => {
       {/* Loader shown only on first fetch */}
       {loading && currentPage === 1 && <LinearProgress />}
       <h1>User List</h1>
-      <Button variant="contained" onClick={onEndReached}>
+      {/* <Button variant="contained" onClick={onEndReached}>
         Next page
-      </Button>
+      </Button> */}
       <Button
+        style={{ marginBottom: '1rem' }}
         variant="contained"
         onClick={() => {
           history.push('/user-modal');
