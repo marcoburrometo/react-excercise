@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 export default function Screen2() {
   const history = useHistory();
   const navigate = () => {
-    history.push('/screen1');
+    history.push('/userList');
   };
 
   return (
@@ -16,7 +16,7 @@ export default function Screen2() {
       <DialogContent className="person-dialog" style={{ padding: 30 }} dividers={true}>
         <h1>Screen 2</h1>
         <Button variant="contained" onClick={navigate}>
-          Go to screen 1
+          Go to User List
         </Button>
       </DialogContent>
     </Dialog>

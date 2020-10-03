@@ -3,7 +3,7 @@ export interface User {
 }
 
 export interface UserState {
-  authToken?: string;
+  accessToken?: string;
   user?: User;
   loading?: boolean;
   error?: string;

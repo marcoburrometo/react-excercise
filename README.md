@@ -5,7 +5,7 @@
 * Redux + redux-toolkit ➡️ [https://redux-toolkit.js.org/](https://redux-toolkit.js.org/)
 	* redux-persist is already included
 * React router dom ➡️ [https://reactrouter.com/web/guides/quick-start][https://reactrouter.com/web/guides/quick-start]
-* react-hook-form for rofm validation ➡️ [https://react-hook-form.com/get-started][https://react-hook-form.com/get-started]
+* react-hook-form for form validation ➡️ [https://react-hook-form.com/get-started][https://react-hook-form.com/get-started]
 * Committizen
 * Material-ui to make it good looking ➡️ [https://material-ui.com/][https://material-ui.com/]
 

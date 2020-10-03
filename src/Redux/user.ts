@@ -11,7 +11,6 @@ export const login = createAsyncThunk(
   'user/login',
   async ({ email, password }: { email: string; password: string }) => {
     const authResult = await httppost('login', { email, password }, true);
-    // In a real case scenario i'm expecting a 403 error.
     const result = await authResult?.json();
     if (authResult?.ok) {
       return {
@@ -32,6 +31,7 @@ const UserSlice = createSlice({
   reducers: {
     removeError: (state) => {
       state.error = undefined;
+      state.loading = false;
     },
     logout: () => initialState,
   },
@@ -40,7 +40,7 @@ const UserSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(login.rejected, (state, action) => {
-      state.authToken = undefined;
+      state.accessToken = undefined;
       state.loading = false;
       state.error = 'Unknown error';
     });

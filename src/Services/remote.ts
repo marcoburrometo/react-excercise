@@ -3,7 +3,7 @@ import { logout } from '../Redux/user';
 
 const apiUrl = 'https://reqres.in/api/';
 
-const getAuthHeader = async () => store.getState().user?.authToken;
+const getAuthHeader = () => store.getState().user?.accessToken;
 
 /**
  * fetch GET or DELETE. apiUrl is included.
@@ -12,7 +12,7 @@ const getAuthHeader = async () => store.getState().user?.authToken;
  * @param isDelete if true the call will be a DELETE. default false.
  */
 export const httpget = async (url: string, ignoreToken = false, isDelete = false) => {
-  const authToken = await getAuthHeader();
+  const authToken = getAuthHeader();
   if (!authToken && !ignoreToken) {
     console.error(`[GET] ${url} Unauthorized!`);
     store.dispatch(logout());
@@ -39,7 +39,7 @@ export const httpget = async (url: string, ignoreToken = false, isDelete = false
  * @param isPut if true the call will be a PUT. default false.
  */
 export const httppost = async (url: string, body?: any, ignoreToken?: boolean, isPatch?: boolean, isPut?: boolean) => {
-  const authToken = await getAuthHeader();
+  const authToken = getAuthHeader();
   if (!authToken && !ignoreToken) {
     console.error('[POST] Unauthorized!');
     store.dispatch(logout());
