@@ -58,7 +58,8 @@ export default function Login() {
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle password visibility"
-                      onClick={() => setPreviewPassword(!previewPassword)}>
+                      onClick={() => setPreviewPassword(!previewPassword)}
+                    >
                       {previewPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>

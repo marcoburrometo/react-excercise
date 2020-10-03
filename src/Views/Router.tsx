@@ -6,7 +6,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import MatSwitch from '@material-ui/core/Switch';
 import UserList from './UserList';
-import Screen2 from './Screen2';
+import UserModal from './UserModal';
 import history from '../Services/history';
 import { toggleTheme } from '../Redux/ui';
 import { logout } from '../Redux/user';
@@ -34,7 +34,7 @@ export default function AppRouter() {
       <Toolbar />
       <Switch>
         <Route path="/user-list" component={UserList} />
-        <Route path="/screen2" component={Screen2} />
+        <Route path="/user-modal" component={UserModal} />
         {/* redirect user to UserList page if route does not exist */}
         <Route component={UserList} />
       </Switch>

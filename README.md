@@ -25,6 +25,7 @@ yarn
 ```
 npm run start // or yarn start
 ```
+The application will run on `http://localhost:3000/`
 
 #### Commit
 To generate a commit message use `git cz`

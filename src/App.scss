@@ -1,5 +1,15 @@
 $error-color: #f44336;
 
+html, body {
+  height: 100%;
+}
+
+#list-container {
+  max-height: 65vh;
+  overflow: auto;
+  margin : 2rem 0;
+}
+
 .has-error {
   color: $error-color;
 }

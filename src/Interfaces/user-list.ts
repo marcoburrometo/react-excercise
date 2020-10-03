@@ -23,3 +23,5 @@ export interface UserListState {
   currentPage: number;
   loading: boolean;
 }
+
+export interface UserToSend extends Omit<Omit<UserListItem, 'id'>, 'avatar'> {}
